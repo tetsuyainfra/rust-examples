@@ -1,11 +1,11 @@
 {
   "recommendations": [
-    "rust-lang.rust",
+    "rust-lang.rust-analyzer",
     "serayuzgur.crates",
     "editorconfig.editorconfig",
     "ms-vscode.hexeditor",
     "vadimcn.vscode-lldb",
     "tamasfe.even-better-toml",
-    "ms-azuretools.vscode-docker"
+    "ms-azuretools.vscode-docker",
   ]
 }

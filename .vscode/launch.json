@@ -1,0 +1,156 @@
+{
+  // IntelliSense を使用して利用可能な属性を学べます。
+  // 既存の属性の説明をホバーして表示します。
+  // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'rust-examples'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=rust-examples",
+          "--package=rust-examples"
+        ],
+        "filter": {
+          "name": "rust-examples",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'rust-examples'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=rust-examples",
+          "--package=rust-examples"
+        ],
+        "filter": {
+          "name": "rust-examples",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'retfut2'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=retfut2",
+          "--package=rust-examples"
+        ],
+        "filter": {
+          "name": "retfut2",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'retfut2'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=retfut2",
+          "--package=rust-examples"
+        ],
+        "filter": {
+          "name": "retfut2",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'mt'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=mt",
+          "--package=rust-examples"
+        ],
+        "filter": {
+          "name": "mt",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'mt'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=mt",
+          "--package=rust-examples"
+        ],
+        "filter": {
+          "name": "mt",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'retfut'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=retfut",
+          "--package=rust-examples"
+        ],
+        "filter": {
+          "name": "retfut",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'retfut'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=retfut",
+          "--package=rust-examples"
+        ],
+        "filter": {
+          "name": "retfut",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

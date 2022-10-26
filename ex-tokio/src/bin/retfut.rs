@@ -35,9 +35,10 @@ async fn main() {
 
 #[cfg(test)]
 mod tests {
+    #![allow(unused)]
     use std::boxed::Box;
     use std::marker::PhantomPinned;
-    use std::pin::{self, Pin};
+    use std::pin::Pin;
 
     use crate::ReturnFuture;
     use pin_project::pin_project;

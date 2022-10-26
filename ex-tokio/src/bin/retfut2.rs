@@ -1,11 +1,6 @@
 // https://zenn.dev/335g/scraps/d42051832dcc55
 // pin_projectを使ってみる
-use std::boxed::Box;
-use std::pin::{self, Pin};
-use std::task::{Context, Poll};
 //
-use futures_util::Future;
-use pin_project::pin_project;
 
 struct SelfRef<T> {
     x: T,

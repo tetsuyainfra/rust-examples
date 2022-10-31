@@ -14,3 +14,12 @@ pin-project = { version = "1.0" }
 
 http = { version = "0.2.8" }
 bytes = { version ="1.2.1" }
+
+hyper =  { version = "1.0.0-rc.1", features = ["full"]}
+# http-body-util ={ version = "1.0.0-rc1" }
+# http-body = "1.0.0-rc1"
+http-body-util = "0.1.0-rc.1"
+
+
+tracing = "0.1"
+tracing-subscriber = "0.3"

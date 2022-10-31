@@ -7,6 +7,10 @@ edition = "2021"
 
 [dependencies]
 tokio = { version = "1.21.2", features = ["full"] }
-futures-util = {version = "0.3"}
+tokio-test = { version = "0.4" }
+futures-util = { version = "0.3" }
 
-pin-project = {version = "1.0"}
+pin-project = { version = "1.0" }
+
+http = { version = "0.2.8" }
+bytes = { version ="1.2.1" }

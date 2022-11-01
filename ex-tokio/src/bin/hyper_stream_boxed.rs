@@ -16,7 +16,7 @@ use http_body_util::Full;
 use hyper::body::Frame;
 use hyper::server::conn::http1;
 use hyper::service::service_fn;
-use hyper::{Request, Response};
+use hyper::{Request, Response, StatusCode};
 use tokio::net::TcpListener;
 
 use tracing::{debug, error, info};
@@ -42,14 +42,24 @@ pub async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
         });
     }
 }
+
 async fn hello(_: Request<hyper::body::Incoming>) -> Result<Response<Full<Bytes>>, Infallible> {
     Ok(Response::new(Full::new(Bytes::from("Hello World!"))))
-    // let resp = (Response::new(Full::new(Bytes::from("Hello World!"))));
-    // let resp = (Response::new(Full::new(Bytes::from("Hello World!"))));
 }
 
-async fn my_count(_: Request<hyper::body::Incoming>) -> Result<Response<MyBody>, Infallible> {
-    Ok(Response::new(get_response()))
+async fn my_count(req: Request<hyper::body::Incoming>) -> Result<Response<MyBody>, Infallible> {
+    info!("req: {:?}", &req);
+    // if &req.uri().path() == "/" {
+    //     Ok(Response::new(Full::new(Bytes::from("Hello World!"))))
+    // }
+    // Ok(Response::new(get_response()))
+    let resp = Response::builder()
+        .status(StatusCode::ACCEPTED)
+        .header("Access-Control-Allow-Origin", "*")
+        .header("Content-Type", "text/plain")
+        .body(get_response())
+        .unwrap();
+    Ok(resp)
 }
 
 fn get_response() -> MyBody {
@@ -108,3 +118,26 @@ fn init_logger() {
     let subscriber = builder.finish();
     tracing::subscriber::set_global_default(subscriber).expect("setting default subscriber failed");
 }
+
+/*
+```javascript
+fetch("http://localhost:3000/")
+.then(async response => {
+  // 結果を数えるための変数
+  let count = 0;
+  // response.body にレスポンス本文のストリーム（ReadableStream）が入っている
+  // ストリームのReaderを作成
+  const reader = response.body.getReader();
+  while (true) {
+    // ストリームからデータを読む
+    const {done, value} = await reader.read();
+    if (done) {
+      // doneがtrueならストリームのデータを全部読み終わった
+      break;
+    }
+    console.log(count++,  new TextDecoder().decode(value)); // Uint8Array to String
+  }
+  return count;
+}).then(count => console.log(count));
+```
+*/

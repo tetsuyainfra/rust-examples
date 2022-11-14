@@ -2,6 +2,7 @@
 use std::{boxed::Box, convert::Infallible, future::Future, pin::Pin};
 
 use bytes::Bytes;
+use futures_util::future::FutureExt;
 use http_body_util::Full;
 use hyper::{
     body::{self, Body},

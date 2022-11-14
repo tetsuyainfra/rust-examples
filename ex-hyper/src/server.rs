@@ -17,13 +17,15 @@ use tokio::net::TcpListener;
 //  serve(|req| async {  YourService::new().call(req) })
 //
 
-pub async fn serve<SVC>(addr: SocketAddr, mut svc: SVC) -> anyhow::Result<()>
+pub async fn serve<SVC, ERR>(addr: SocketAddr, mut svc: SVC) -> anyhow::Result<()>
 where
     SVC: Service<
             Request<hyper::body::Incoming>,
-            Error = Infallible,
+            // Error = Infallible,
+            Error = ERR,
             Response = Response<Full<Bytes>>,
         > + Copy,
+    ERR: Into<Box<dyn StdError + Send + Sync>>,
 {
     let listener = TcpListener::bind(addr).await?;
     loop {

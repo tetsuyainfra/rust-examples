@@ -1,5 +1,4 @@
-#[tokio::main]
-async fn main() {
+fn main() {
     fn_();
     fn_mut_();
     fn_once_();

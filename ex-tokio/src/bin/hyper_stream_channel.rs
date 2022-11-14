@@ -30,9 +30,9 @@ use tracing::{debug, error, info};
 pub async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     init_logger();
     let addr: SocketAddr = ([127, 0, 0, 1], 3000).into();
+
     let listener = TcpListener::bind(addr).await?;
     println!("Listening on http://{}", addr);
-
     loop {
         let (stream, _) = listener.accept().await?;
 

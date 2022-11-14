@@ -2,4 +2,6 @@
 
 members = [
     "ex-tokio",
+    "ex-hyper",
+    "std",
 ]

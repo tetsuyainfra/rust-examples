@@ -1,4 +1,4 @@
-//
+// Service を Serviceに保存して使うことができる
 //
 use std::{
     boxed::Box,

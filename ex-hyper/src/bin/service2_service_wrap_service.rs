@@ -85,6 +85,8 @@ struct TimeWith<T> {
 
 impl<T, Request> Service<Request> for TimeWith<T>
 where
+    // 肝はここで関係タイプを指定してるところなのかな？
+    // トレイト境界にはトレイトしか指定できないけど、関係タイプなら指定できる・・・
     T: Service<Request, Response = HttpResponse, Error = Infallible> + Clone + 'static,
     Request: fmt::Debug + 'static,
 {
